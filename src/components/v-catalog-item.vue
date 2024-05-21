@@ -6,7 +6,7 @@
       alt="pic" />
     <p class="v-catalog-item-name">{{ product_data.name }}</p>
     <p class="v-catalog-item-price">{{ product_data.price }}</p>
-    <button class="v-catalog-item-add_to_card_btn" @click="SendDataToParent()">
+    <button class="v-catalog-item-add_to_card_btn" @click="addToCart">
       add
     </button>
   </div>
@@ -27,21 +27,23 @@ export default {
     return {};
   },
   methods: {
-    SendDataToParent() {
-      this.$emit("addToCart", this.product_data.article);
+    addToCart() {
+      this.$emit("addToCart", this.product_data);
     },
-    }
+  },
 };
 </script>
 
 <style lang="scss">
 .v-catalog-item {
-  flex-basis: 25%;
+  flex-basis: 40%;
   box-shadow: 0 0 8px 0 grey;
   padding: 20px;
-  margin: 20%;
-  &__img {
-    max-width: 100px;
-  }
+  margin: 20px;
+}
+.v-catalog-item-image {
+  width: 150px;
+  display: block;
+  margin: 0 auto;
 }
 </style>
